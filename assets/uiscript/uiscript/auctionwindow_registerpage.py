@@ -42,7 +42,7 @@ window = {
 			"y" : 150,
 			"horizontal_align" : "center",
 			"text_horizontal_align" : "center",
-			"text" : "¾ÆÀÌÅÛÀ» ÀÌ°÷¿¡ µå·¡±×ÇÏ¿© ³Ö¾îÁÖ¼¼¿ä",
+			"text" : "ì•„ì´í…œì„ ì´ê³³ì— ë“œë˜ê·¸í•˜ì—¬ ë„£ì–´ì£¼ì„¸ìš”",
 		},
 
 		{
@@ -50,7 +50,7 @@ window = {
 			"type" : "text",
 			"x" : 70,
 			"y" : 185,
-			"text" : "¸Å¸Å ÃÖÀú°¡",
+			"text" : "ë§¤ë§¤ ìµœì €ê°€",
 		},
 		{
 			"name" : "LowerSellingPriceSlot",
@@ -76,7 +76,7 @@ window = {
 			"type" : "text",
 			"x" : 70,
 			"y" : 205,
-			"text" : "¸Å¸Å Æò±Õ°¡",
+			"text" : "ë§¤ë§¤ í‰ê· ê°€",
 		},
 		{
 			"name" : "AverageSellingPriceSlot",
@@ -123,7 +123,7 @@ window = {
 			"x" : 230,
 			"y" : 250 - 3,
 
-			"text" : "µî·Ï",
+			"text" : "ë“±ë¡",
 
 			"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/small_button_02.sub",

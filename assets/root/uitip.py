@@ -1,4 +1,3 @@
-# -*- coding: cp949 -*-
 import ui
 import grp
 import app
@@ -321,8 +320,8 @@ if __name__ == "__main__":
 
 	wnd = BigBoard()
 	wnd.Show()
-	wnd.SetTip("¾È³çÇÏ¼¼¿ä")
-	wnd.SetTip("Àú´Â ºøÀÚ·ç ÀÔ´Ï´Ù")
+	wnd.SetTip("ì•ˆë…•í•˜ì„¸ìš”")
+	wnd.SetTip("ì €ëŠ” ë¹—ìë£¨ ì…ë‹ˆë‹¤")
 
 	app.Loop()
 

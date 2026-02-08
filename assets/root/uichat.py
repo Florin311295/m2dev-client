@@ -1,4 +1,3 @@
-# -*- coding: cp949 -*-
 import ui
 import grp
 import chat
@@ -37,7 +36,7 @@ class ChatModeButton(ui.Window):
 
 	def __init__(self):
 		ui.Window.__init__(self)
-		self.state = None
+		self.state = self.BUTTON_STATE_UP
 		self.buttonText = None
 		self.event = None
 		self.SetWindowName("ChatModeButton")
@@ -87,7 +86,6 @@ class ChatModeButton(ui.Window):
 			self.event()
 
 	def OnRender(self):
-
 		(x, y) = self.GetGlobalPosition()
 
 		grp.SetColor(self.OUTLINE_COLOR)
@@ -604,7 +602,7 @@ class ChatWindow(ui.Window):
 		self.scrollBar = scrollBar
 
 		self.Refresh()
-		self.chatInputSet.RefreshPosition() # RTL ½Ã À§Ä¡¸¦ Á¦´ë·Î ÀâÀ¸·Á¸é À§Ä¡ °»½ÅÀÌ ÇÊ¿äÇÏ´Ù
+		self.chatInputSet.RefreshPosition() # RTL ì‹œ ìœ„ì¹˜ë¥¼ ì œëŒ€ë¡œ ì¡ìœ¼ë ¤ë©´ ìœ„ì¹˜ ê°±ì‹ ì´ í•„ìš”í•˜ë‹¤
 	
 	def __del__(self):
 		ui.Window.__del__(self)
@@ -798,7 +796,7 @@ class ChatWindow(ui.Window):
 			self.Refresh()
 
 		if self.curHeightBar != self.heightBar:
-			self.curHeightBar += (self.heightBar - self.curHeightBar) / 10
+			self.curHeightBar += (self.heightBar - self.curHeightBar) // 10
 
 		if self.boardState == chat.BOARD_STATE_EDIT:
 			grp.SetColor(self.BOARD_MIDDLE_COLOR)
@@ -1089,7 +1087,7 @@ class ChatLogWindow(ui.Window):
 			
 		self.chatInputSet.SetSize(self.GetWidth() - 20, 20)
 		self.chatInputSet.RefreshPosition()
-		self.chatInputSet.SetChatMax(self.GetWidth() / 8)
+		self.chatInputSet.SetChatMax(self.GetWidth() // 8)
 
 	def OnScroll(self):
 		self.scrollBarPos = self.scrollBar.GetPos()

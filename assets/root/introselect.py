@@ -1,4 +1,3 @@
-# -*- coding: cp949 -*-
 import chr
 import grp
 import app
@@ -17,7 +16,7 @@ import musicInfo
 import playerSettingModule
 
 ####################################
-# ºü¸¥ ½ÇÇàÀ» À§ÇÑ ¸ğµâ ·Îµù ºĞ´ã
+# ë¹ ë¥¸ ì‹¤í–‰ì„ ìœ„í•œ ëª¨ë“ˆ ë¡œë”© ë¶„ë‹´
 ####################################
 import uiCommon                    
 import uiMapNameShower             
@@ -27,7 +26,7 @@ import uiCharacter
 import uiTarget                    
 import consoleModule               
 
-# interface moduleÀÌ ¹®Á¦¾ß...
+# interface moduleì´ ë¬¸ì œì•¼...
 import interfaceModule
 import uiTaskBar                   
 import uiInventory
@@ -744,7 +743,7 @@ class SelectCharacterWindow(ui.Window):
 		if -1 != self.startIndex:
 
 			## Temporary
-			## BackGroundLoadingÀÌ Áö¿ø µÉ¶§±îÁö ÀÓ½Ã·Î..
+			## BackGroundLoadingì´ ì§€ì› ë ë•Œê¹Œì§€ ì„ì‹œë¡œ..
 			if app.GetTime() - self.startReservingTime > 3.0:
 				if False == self.openLoadingFlag:
 					chrSlot=self.stream.GetCharacterSlot()
@@ -756,7 +755,7 @@ class SelectCharacterWindow(ui.Window):
 					import player
 					player.SetPlayTime(playTime)
 					import chat
-					chat.Clear() ## µé¾î°¥¶§ Chat À» ÃÊ±âÈ­. ÀÓ½Ã Pos.
+					chat.Clear() ## ë“¤ì–´ê°ˆë•Œ Chat ì„ ì´ˆê¸°í™”. ì„ì‹œ Pos.
 			## Temporary
 		#######################################################
 

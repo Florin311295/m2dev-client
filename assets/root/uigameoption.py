@@ -1,4 +1,3 @@
-# -*- coding: cp949 -*-
 import ui
 import snd
 import systemSetting
@@ -9,8 +8,8 @@ import localeInfo
 import constInfo
 import chrmgr
 import player
-import uiPrivateShopBuilder # ����ȣ
-import interfaceModule # ����ȣ
+import uiPrivateShopBuilder # 占쏙옙占쏙옙호
+import interfaceModule # 占쏙옙占쏙옙호
 
 blockMode = 0
 viewChatMode = 0

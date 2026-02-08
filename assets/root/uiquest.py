@@ -76,7 +76,7 @@ class QuestCurtain(ui.Window):
 
 		self.CurtainMode = 0
 
-		self.lastclock = time.clock()
+		self.lastclock = time.perf_counter()
 
 	def Close(self):
 		self.CurtainMode = 0
@@ -87,7 +87,7 @@ class QuestCurtain(ui.Window):
 		QuestCurtain.OnDoneEventList = []
 
 	def OnUpdate(self):
-		dt = time.clock() - self.lastclock
+		dt = time.perf_counter() - self.lastclock
 		if self.CurtainMode>0:
 			self.TopBar.SetPosition(0, int(self.TopBar.GetGlobalPosition()[1]+dt*self.CURTAIN_SPEED))
 			self.BottomBar.SetPosition(0, int(self.BottomBar.GetGlobalPosition()[1]-dt*self.CURTAIN_SPEED))
@@ -104,7 +104,7 @@ class QuestCurtain(ui.Window):
 				self.BottomBar.SetPosition(0,wndMgr.GetScreenHeight()+1)
 				self.Close()
 
-		self.lastclock = time.clock()
+		self.lastclock = time.perf_counter()
 
 class EventCurtain(ui.Bar):
 
@@ -266,7 +266,7 @@ class QuestDialog(ui.ScriptWindow):
 		else:
 			event.SetRestrictedCount(idx,60)
 
-		QuestCurtain.BarHeight = (wndMgr.GetScreenHeight()-wndMgr.GetScreenWidth()*9/16)/2
+		QuestCurtain.BarHeight = (wndMgr.GetScreenHeight()-wndMgr.GetScreenWidth() * 9 // 16) // 2
 
 		if QuestCurtain.BarHeight<0:
 			QuestCurtain.BarHeight = 50
@@ -414,9 +414,21 @@ class QuestDialog(ui.ScriptWindow):
 
 	## Set Variables
 
-	def AddOnCloseEvent(self,f):
+	def AddOnCloseEvent(self, f):
 		if self.OnCloseEvent:
-			self.OnCloseEvent = lambda z=[self.OnCloseEvent, f]:list(map(apply,z))
+			old = self.OnCloseEvent
+
+			def combined(*args, **kwargs):
+				err = None
+				try:
+					old(*args, **kwargs)
+				except Exception as e:
+					err = e
+				f(*args, **kwargs)
+				if err:
+					raise err
+
+			self.OnCloseEvent = combined
 		else:
 			self.OnCloseEvent = f
 
@@ -446,7 +458,7 @@ class QuestDialog(ui.ScriptWindow):
 		b.SetParent(self.board)
 
 		b.SetSize(100,26)
-		b.SetPosition(self.sx+self.board.GetWidth()/2-50,self.sy+yPos)
+		b.SetPosition(self.sx+self.board.GetWidth()//2-50,self.sy+yPos)
 
 		self.nextButtonType = button_type;
 		
@@ -470,7 +482,7 @@ class QuestDialog(ui.ScriptWindow):
 		global entire_questbutton_number
 		global entire_questpage_number
 		global cur_questpage_number
-		entire_questpage_number = ((n-2)/7)+1
+		entire_questpage_number = ((n-2)//7)+1
 		entire_questbutton_number = n
 		
 		if not self.board:
@@ -480,12 +492,12 @@ class QuestDialog(ui.ScriptWindow):
 			
 		import localeInfo
 		self.prevbutton = self.MakeNextPrevPageButton()
-		self.prevbutton.SetPosition(self.sx+self.board.GetWidth()/2-164, self.board.GetHeight()/2-16)
+		self.prevbutton.SetPosition(self.sx+self.board.GetWidth()//2-164, self.board.GetHeight()//2-16)
 		self.prevbutton.SetText(localeInfo.UI_PREVPAGE)
 		self.prevbutton.SetEvent(self.PrevQuestPageEvent, 1, n)
 		
 		self.nextbutton = self.MakeNextPrevPageButton()
-		self.nextbutton.SetPosition(self.sx+self.board.GetWidth()/2+112, self.board.GetHeight()/2-16)
+		self.nextbutton.SetPosition(self.sx+self.board.GetWidth()//2+112, self.board.GetHeight()//2-16)
 		self.nextbutton.SetText(localeInfo.UI_NEXTPAGE)		
 		self.nextbutton.SetEvent(self.NextQuestPageEvent, 1, n)
 		
@@ -497,7 +509,7 @@ class QuestDialog(ui.ScriptWindow):
 			button = BarButton("TOP_MOST",0x50000000, 0x50404040, 0x50606060)
 			button.SetParent(self.board)
 			button.SetSize(106,26)
-			button.SetPosition(self.sx + self.board.GetWidth()/2+((i*2)-1)*56-56, self.sy+(event.GetLineCount(self.descIndex))*16+20+5)
+			button.SetPosition(self.sx + self.board.GetWidth()//2+((i*2)-1)*56-56, self.sy+(event.GetLineCount(self.descIndex))*16+20+5)
 			button.SetText("a")
 			button.SetTextColor(0xff000000)
 		else:
@@ -505,7 +517,7 @@ class QuestDialog(ui.ScriptWindow):
 			button = BarButton("TOP_MOST")
 			button.SetParent(self.board)
 			button.SetSize(200,26)
-			button.SetPosition(self.sx + self.board.GetWidth()/2-100,self.sy+(event.GetLineCount(self.descIndex)+i*2)*16+20+5)
+			button.SetPosition(self.sx + self.board.GetWidth()//2-100,self.sy+(event.GetLineCount(self.descIndex)+i*2)*16+20+5)
 			button.SetText("a")
 			button.SetTextColor(0xffffffff)
 		return button
@@ -766,7 +778,7 @@ class QuestDialog(ui.ScriptWindow):
 			img = ToolTipImageBox()
 			img.SetParent(self.board)
 			img.LoadImage(filename)
-			pos_x = (self.board.GetWidth() * (index + 1) / (total + 1)) - (img.GetWidth() / 2)
+			pos_x = (self.board.GetWidth() * (index + 1) // (total + 1)) - (img.GetWidth() // 2)
 			img.SetPosition(pos_x, y)
 			#img.SetWindowHorizontalAlignCenter()
 			img.DestroyToolTip()
@@ -781,7 +793,7 @@ class QuestDialog(ui.ScriptWindow):
 
 		if underTitle:
 			event.AddEventSetLocalYPosition(self.descIndex, 3)
-			event.InsertTextInline(self.descIndex, underTitle, (self.board.GetWidth() * (index + 1) / (total + 1)))
+			event.InsertTextInline(self.descIndex, underTitle, (self.board.GetWidth() * (index + 1) // (total + 1)))
 			if index != total - 1:
 				event.AddEventSetLocalYPosition(self.descIndex, -( 3 + 16 ))
 		else:
@@ -803,7 +815,7 @@ class QuestDialog(ui.ScriptWindow):
 		try:
 			img.SetWindowHorizontalAlignCenter()
 			img.LoadImage(filename)
-			img.SetPosition(0, wndMgr.GetScreenHeight() - (75/2) - (32/2))
+			img.SetPosition(0, wndMgr.GetScreenHeight() - (75//2) - (32//2))
 			img.SetAlpha(0.0)
 			img.Show()
 		except RuntimeError:
@@ -830,7 +842,7 @@ class QuestDialog(ui.ScriptWindow):
 		try:
 			self.imgLeft.LoadImage(imgfile)
 			self.imgLeft.SetSize(400,450)
-			self.imgLeft.SetOrigin(self.imgLeft.GetWidth()/2,self.imgLeft.GetHeight()/2)
+			self.imgLeft.SetOrigin(self.imgLeft.GetWidth()//2,self.imgLeft.GetHeight()//2)
 			self.imgLeft.Show()
 		except RuntimeError:
 			import dbg
@@ -860,7 +872,7 @@ class QuestDialog(ui.ScriptWindow):
 				self.imgTop.SetSize(350,170)
 				bd.SetPosition(bx,190)
 				bd.SetSize(350,250)
-			self.imgTop.SetOrigin(self.imgTop.GetWidth()/2,self.imgTop.GetHeight()/2)
+			self.imgTop.SetOrigin(self.imgTop.GetWidth()//2,self.imgTop.GetHeight()//2)
 			self.imgTop.Show()
 		except RuntimeError:
 			dbg.TraceError("QuestDialog.OnTopImage(%s)" % imgfile)
@@ -885,11 +897,11 @@ class QuestDialog(ui.ScriptWindow):
 			ih = 333
 			self.imgBackground.SetSize(iw,ih)
 		if w < iw:
-			px -= (iw-w)/2
+			px -= (iw-w)//2
 			c.SetPosition(px,py)
 			w = iw
 		if h < ih:
-			py -= (ih-h)/2
+			py -= (ih-h)//2
 			c.SetPosition(px,py)
 			h = ih
 		if self.skin == 3:

@@ -18,21 +18,21 @@ window = {
 			"type" : "text",
 			"x" : 18,
 			"y" : 7,
-			"text" : "π¯»£",
+			"text" : "Î≤àÌò∏",
 		},
 		{
 			"name" : "NamePrint",
 			"type" : "text",
 			"x" : 79,
 			"y" : 7,
-			"text" : "æ∆¿Ã≈€ ¿Ã∏ß",
+			"text" : "ÏïÑÏù¥ÌÖú Ïù¥Î¶Ñ",
 		},
 		{
 			"name" : "NamePrint",
 			"type" : "text",
 			"x" : 228,
 			"y" : 7,
-			"text" : "∞°∞›",
+			"text" : "Í∞ÄÍ≤©",
 		},
 
 		{
@@ -51,7 +51,7 @@ window = {
 					"type" : "text",
 					"x" : 0,
 					"y" : 0,
-					"text" : "æ∆¿Ã≈€ ∞Àªˆ«œ±‚",
+					"text" : "ÏïÑÏù¥ÌÖú Í≤ÄÏÉâÌïòÍ∏∞",
 					"all_align" : "center",
 				},
 
@@ -63,7 +63,7 @@ window = {
 			"type" : "text",
 			"x" : SEARCHING_AREA_X_POS + 5,
 			"y" : SEARCHING_AREA_Y_POS + 24,
-			"text" : "æ∆¿Ã≈€¿Ã∏ß",
+			"text" : "ÏïÑÏù¥ÌÖúÏù¥Î¶Ñ",
 		},
 		{
 			"name" : "SearchingNameSlot",
@@ -78,7 +78,7 @@ window = {
 			"type" : "text",
 			"x" : SEARCHING_AREA_X_POS + 5,
 			"y" : SEARCHING_AREA_Y_POS + 44,
-			"text" : "π¯»£∑Œ√£±‚",
+			"text" : "Î≤àÌò∏Î°úÏ∞æÍ∏∞",
 		},
 		{
 			"name" : "SearchingIDSlot",
@@ -93,7 +93,7 @@ window = {
 			"type" : "text",
 			"x" : SEARCHING_AREA_X_POS + 205,
 			"y" : SEARCHING_AREA_Y_POS + 24,
-			"text" : "º“ƒœø©∫Œ",
+			"text" : "ÏÜåÏºìÏó¨Î∂Ä",
 		},
 
 		{
@@ -101,7 +101,7 @@ window = {
 			"type" : "button",
 			"x" : SEARCHING_AREA_X_POS + 295,
 			"y" : SEARCHING_AREA_Y_POS + 20,
-			"text" : "√£±‚",
+			"text" : "Ï∞æÍ∏∞",
 			"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/small_button_02.sub",
 			"down_image" : "d:/ymir work/ui/public/small_button_03.sub",
@@ -111,7 +111,7 @@ window = {
 			"type" : "button",
 			"x" : SEARCHING_AREA_X_POS + 295,
 			"y" : SEARCHING_AREA_Y_POS + 40,
-			"text" : "√£±‚",
+			"text" : "Ï∞æÍ∏∞",
 			"default_image" : "d:/ymir work/ui/public/small_button_01.sub",
 			"over_image" : "d:/ymir work/ui/public/small_button_02.sub",
 			"down_image" : "d:/ymir work/ui/public/small_button_03.sub",

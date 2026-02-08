@@ -1,4 +1,3 @@
-# -*- coding: cp949 -*-
 import net
 import player
 import item
@@ -275,7 +274,7 @@ class ShopDialog(ui.ScriptWindow):
 		self.pop = None
 		constInfo.SET_ITEM_QUESTION_DIALOG_STATUS(0)
 
-	## ¿ëÈ¥¼® ÆÈ¸®´Â ±â´É Ãß°¡.
+	## ìš©í˜¼ì„ íŒ”ë¦¬ëŠ” ê¸°ëŠ¥ ì¶”ê°€.
 	def SellAttachedItem(self):
 
 		if shop.IsPrivateShop():

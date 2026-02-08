@@ -56,7 +56,7 @@ window = {
 					),
 				},
 
-				## ¿Ã∏ßªˆ
+				## Ïù¥Î¶ÑÏÉâ
 				{
 					"name" : "name_color",
 					"type" : "text",
@@ -93,7 +93,7 @@ window = {
 					"down_image" : ROOT_PATH + "Middle_Button_03.sub",
 				},
 
-				## ≈∏∞Ÿ√¢
+				## ÌÉÄÍ≤üÏ∞Ω
 				{
 					"name" : "target_board",
 					"type" : "text",
@@ -398,7 +398,7 @@ window = {
 					"down_image" : ROOT_PATH + "middle_button_03.sub",
 				},
 
-				## ∆«∏≈πÆ±∏
+				## ÌåêÎß§Î¨∏Íµ¨
 				{
 					"name" : "salestext_on_off",
 					"type" : "text",

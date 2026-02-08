@@ -22,7 +22,7 @@ window = {
 			"width" : 376,
 			"height" : 370,
 
-			"title" : "∏≈∏≈ µÓ∑œ",
+			"title" : "Îß§Îß§ Îì±Î°ù",
 
 			"children" :
 			(

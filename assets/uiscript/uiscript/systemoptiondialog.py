@@ -116,7 +116,7 @@ window = {
 					"y" : 50,
 				},	
 
-				## Ä«¸Ş¶ó
+				## ì¹´ë©”ë¼
 				{
 					"name" : "camera_mode",
 					"type" : "text",
@@ -155,7 +155,7 @@ window = {
 					"down_image" : ROOT_PATH + "Middle_Button_03.sub",
 				},
 
-				## ¾È°³
+				## ì•ˆê°œ
 				{
 					"name" : "fog_mode",
 					"type" : "text",
@@ -208,7 +208,7 @@ window = {
 					"down_image" : ROOT_PATH + "small_Button_03.sub",
 				},
 
-				## Å¸ÀÏ °¡¼Ó
+				## íƒ€ì¼ ê°€ì†
 				{
 					"name" : "tiling_mode",
 					"type" : "text",
@@ -262,7 +262,7 @@ window = {
 				},
 
 
-				## ±×¸²ÀÚ
+				## ê·¸ë¦¼ì
 #				{
 #					"name" : "shadow_mode",
 #					"type" : "text",

@@ -1,4 +1,3 @@
-# -*- coding: cp949 -*-
 import ui
 import uiScriptLocale
 import net
@@ -18,7 +17,7 @@ import stringCommander
 import emotion
 
 ####################################
-# ºü¸¥ ½ÇÇàÀ» À§ÇÑ ¸ğµâ ·Îµù ºĞ´ã
+# ë¹ ë¥¸ ì‹¤í–‰ì„ ìœ„í•œ ëª¨ë“ˆ ë¡œë”© ë¶„ë‹´
 ####################################
 import uiRefine
 import uiToolTip
@@ -163,7 +162,7 @@ class LoadingWindow(ui.ScriptWindow):
 		self.playerX=playerX
 		self.playerY=playerY
 
-		self.__RegisterSkill() ## ·Îµù Áß°£¿¡ ½ÇÇà ÇÏ¸é ¹®Á¦ ¹ß»ı
+		self.__RegisterSkill() ## ë¡œë”© ì¤‘ê°„ì— ì‹¤í–‰ í•˜ë©´ ë¬¸ì œ ë°œìƒ
 		self.__RegisterTitleName()
 		self.__RegisterColor()
 		self.__InitData()
@@ -184,7 +183,7 @@ class LoadingWindow(ui.ScriptWindow):
 		self.playerY=playerY
 
 		self.__RegisterDungeonMapName()
-		self.__RegisterSkill() ## ·Îµù Áß°£¿¡ ½ÇÇà ÇÏ¸é ¹®Á¦ ¹ß»ı
+		self.__RegisterSkill() ## ë¡œë”© ì¤‘ê°„ì— ì‹¤í–‰ í•˜ë©´ ë¬¸ì œ ë°œìƒ
 		self.__RegisterTitleName()
 		self.__RegisterColor()
 		self.__RegisterEmotionIcon()
@@ -222,7 +221,7 @@ class LoadingWindow(ui.ScriptWindow):
 				self.errMsg.Show()
 				self.loadStepList=[]
 
-				## ÀÌ°÷¿¡¼­ syserr.txt ¸¦ º¸³½´Ù.
+				## ì´ê³³ì—ì„œ syserr.txt ë¥¼ ë³´ë‚¸ë‹¤.
 
 				import dbg
 				dbg.TraceError(" !!! Failed to load game data : STEP [%d]" % (progress))

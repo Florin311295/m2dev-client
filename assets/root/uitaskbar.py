@@ -736,11 +736,11 @@ class TaskBar(ui.ScriptWindow):
 		curPoint = max(curPoint, 0)
 		maxPoint = max(maxPoint, 0)
 
-		quarterPoint = maxPoint / 4
+		quarterPoint = maxPoint // 4
 		FullCount = 0
 
 		if 0 != quarterPoint:
-			FullCount = min(4, curPoint / quarterPoint)
+			FullCount = min(4, curPoint // quarterPoint)
 
 		for i in range(4):
 			self.expGauge[i].Hide()
