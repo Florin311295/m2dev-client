@@ -188,11 +188,7 @@ class MessengerGroupItem(MessengerItem):
 		self.memberList = []
 
 	def FindMember(self, key):
-		list = list(filter(lambda argMember, argKey=key: argMember.IsSameKey(argKey), self.memberList))
-		if list:
-			return list[0]
-
-		return None
+		return next((m for m in self.memberList if m.IsSameKey(key)), None)
 
 	def GetLoginMemberList(self):
 		return list(filter(MessengerMemberItem.IsOnline, self.memberList))

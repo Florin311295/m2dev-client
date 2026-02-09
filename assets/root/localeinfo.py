@@ -346,9 +346,9 @@ def SecondToDHM(time):
 	if time < 60:
 		return '0' + MINUTE
 
-	minute = int((time / 60) % 60)
-	hour = int((time / 60) / 60) % 24
-	day = int(int((time / 60) / 60) / 24)
+	minute = (time // 60) % 60
+	hour = ((time // 60) // 60) % 24
+	day = ((time // 60) // 60) // 24
 
 	text = ''
 	if day > 0:
@@ -368,8 +368,8 @@ def SecondToHM(time):
 	if time < 60:
 		return '0' + MINUTE
 
-	minute = int((time / 60) % 60)
-	hour = int((time / 60) / 60)
+	minute = (time // 60) % 60
+	hour = (time // 60) // 60
 
 	text = ''
 	if hour > 0:
